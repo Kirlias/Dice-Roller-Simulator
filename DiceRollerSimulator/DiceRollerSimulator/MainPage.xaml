@@ -8,7 +8,7 @@
     mc:Ignorable="d" Height="500" Width="650">
     <Page.BottomAppBar>
         <CommandBar>
-               
+
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,7 +23,13 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="tbxResults" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="17" Margin="10,19.667,10,64"/>
+        <TextBox x:Name="tbxResults" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="17" Margin="10,19.667,10,64" IsEnabled="False"/>
+        
+        <Button x:Name="btnRoll" Content="Roll Dice!" Grid.Row="3" Grid.Column="1" Width="300" Margin="10"/>
+        <TextBlock x:Name="tbkResults" Grid.Row="3" TextWrapping="Wrap" Text="Results:" Margin="15,0,0,0" VerticalAlignment="Bottom" FontSize="24"/>
+        
+        <TextBox x:Name="tbxSidesOnDice" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="10" />
+        <TextBlock x:Name="tbkNoSides" Grid.Row="2" TextWrapping="Wrap" Text="Number of Sides:" FontSize="24" Margin="10" TextAlignment="Right"/>
 
     </Grid>
 </Page>
