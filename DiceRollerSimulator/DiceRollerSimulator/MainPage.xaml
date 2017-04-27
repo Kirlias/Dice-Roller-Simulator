@@ -20,8 +20,8 @@
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="325"/>
+            <ColumnDefinition Width="325"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="tbxResults" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="17" Margin="10,19.667,10,64" IsEnabled="False"/>
         
