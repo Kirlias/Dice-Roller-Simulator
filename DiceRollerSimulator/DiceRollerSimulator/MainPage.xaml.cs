@@ -22,9 +22,25 @@ namespace DiceRollerSimulator
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void tbxNoDice_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            //temporary number place holder
+            int tempNumber;
+
+            //checks the text in the text box
+            if(int.TryParse(sender.Text, out tempNumber) || sender.Text == "")
+            {
+
+            }
+
         }
     }
 }
