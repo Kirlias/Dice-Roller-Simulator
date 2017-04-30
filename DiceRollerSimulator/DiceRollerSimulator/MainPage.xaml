@@ -8,7 +8,7 @@
     mc:Ignorable="d" Height="500" Width="650">
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Help" Label="About" Command="{Binding DisplayAbout, Mode=OneWay}"/>
+            <AppBarButton Icon="Help" Label="About" Click="DisplayAbout"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

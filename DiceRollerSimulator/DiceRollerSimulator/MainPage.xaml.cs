@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace DiceRollerSimulator
@@ -69,45 +70,56 @@ namespace DiceRollerSimulator
         {
             //reset the results textbox
             tbxResults.Text = "";
-            
-            //get the text in both entry boxes
-            int numOfDice = int.Parse(tbxNoDice.Text);
-            int numOfSides = int.Parse(tbxSidesOnDice.Text);
-
-            //iterate through the number of dice there are
-            for(int i = 0; i < numOfDice; i++)
+            try
             {
-                //if 1 + i divided by 5 does not have a remainder then this entry is the fifth on the line
-                if ((i+1) % 5 == 0)
-                {
-                    //add the results of the dice roll and start a new line
-                    tbxResults.Text += "   Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1) + "\n";
-                }
+                //get the text in both entry boxes
+                int numOfDice = int.Parse(tbxNoDice.Text);
+                int numOfSides = int.Parse(tbxSidesOnDice.Text);
 
-                // if it is not the fifth entry in the textbox
-                else
+                //iterate through the number of dice there are
+                for (int i = 0; i < numOfDice; i++)
                 {
-                    //if the last entry was the end of a line
-                    if (i % 5 == 0)
+                    //if 1 + i divided by 5 does not have a remainder then this entry is the fifth on the line
+                    if ((i + 1) % 5 == 0)
                     {
-                        //start the new line with a new dice result
-                        tbxResults.Text += "Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1);
-
+                        //add the results of the dice roll and start a new line
+                        tbxResults.Text += "   Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1) + "\n";
                     }
 
-                    //if it is any entry other than teh first or last
+                    // if it is not the fifth entry in the textbox
                     else
                     {
-                        //add a new dice result to the textbox
-                        tbxResults.Text += "   Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1);
+                        //if the last entry was the end of a line
+                        if (i % 5 == 0)
+                        {
+                            //start the new line with a new dice result
+                            tbxResults.Text += "Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1);
+
+                        }
+
+                        //if it is any entry other than teh first or last
+                        else
+                        {
+                            //add a new dice result to the textbox
+                            tbxResults.Text += "   Dice #" + (i + 1) + ": " + random.Next(1, numOfSides + 1);
+                        }
                     }
                 }
             }
+            catch { }
+
         }
 
-        private void DisplayAbout()
+        private async void DisplayAbout(object sender, RoutedEventArgs e)
         {
-            
+            ContentDialog About = new ContentDialog
+            {
+                Title = "About this project",
+                Content = "\nCreated by: James Hagen",
+                PrimaryButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await About.ShowAsync();
         }
     }
 }
